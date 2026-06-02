@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌟 2학년 즐거운 영단어 학습 🌟</title>
+    <title>🌟 즐거운 영단어 학습 🌟</title>
     <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -380,7 +380,7 @@
             padding: 12px 30px;
         }
 
-        /* 커스텀 모달 UI (기본 alert 대체) */
+        /* 커스텀 모달 UI */
         #custom-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -446,7 +446,6 @@
 </head>
 <body>
 
-    <!-- 학생 정보 입력 창 -->
     <div id="login-overlay">
         <div class="login-box">
             <h2 style="color: var(--primary); margin-bottom: 10px;">👋 반가워요!</h2>
@@ -457,25 +456,21 @@
         </div>
     </div>
 
-    <!-- 커스텀 모달 오버레이 -->
     <div id="custom-modal-overlay">
         <div class="modal-card" id="custom-modal-card">
             <div id="modal-message">알림 메시지</div>
             <div class="modal-btns-container" id="modal-buttons">
-                <!-- 버튼이 유동적으로 생성됩니다 -->
             </div>
         </div>
     </div>
 
-    <h1>🎈 2학년 즐거운 영단어 학습 🎈</h1>
+    <h1>🎈 즐거운 영단어 학습 🎈</h1>
 
-    <!-- 과 선택 -->
     <div class="controls">
-        <button id="btn-lesson1" class="active" onclick="setLesson(1)">📘 Lesson 1</button>
-        <button id="btn-lesson2" onclick="setLesson(2)">📙 Lesson 2</button>
+        <button id="btn-lesson3" class="active" onclick="setLesson(3)">📘 3과 단어</button>
+        <button id="btn-lesson4" onclick="setLesson(4)">📙 4과 단어</button>
     </div>
 
-    <!-- 모드 선택 -->
     <div class="sub-controls">
         <button id="btn-learn-all" class="active" onclick="setMode('learn-all')">📖 전체 학습</button>
         <button id="btn-learn-single" onclick="setMode('learn-single')">📇 한 단어 학습</button>
@@ -485,49 +480,68 @@
     </div>
 
     <div id="content-area">
-        <!-- 컨텐츠가 여기에 렌더링됩니다 -->
-    </div>
+        </div>
 
     <script>
-        // 영영풀이와 예문이 포함된 2학년 수준의 단어 리스트
+        // 요청하신 3과, 4과 단어 완벽 반영
         const words = {
-            lesson1: [
-                {en: "environment", ko: "환경", def: "the natural world", ex: "We must protect the environment."},
-                {en: "pollution", ko: "오염", def: "damage caused to water, air, etc.", ex: "Air pollution is a serious problem."},
-                {en: "volunteer", ko: "자원봉사자", def: "a person who works without being paid", ex: "She works as a volunteer at the hospital."},
-                {en: "encourage", ko: "격려하다", def: "to give someone confidence or hope", ex: "My parents always encourage me."},
-                {en: "reduce", ko: "줄이다", def: "to make something smaller in size or amount", ex: "We should reduce food waste."},
-                {en: "protect", ko: "보호하다", def: "to keep someone or something safe", ex: "Sunglasses protect your eyes from the sun."},
-                {en: "destroy", ko: "파괴하다", def: "to damage something very badly", ex: "The fire destroyed the whole forest."},
-                {en: "participate", ko: "참여하다", def: "to take part in an activity", ex: "Everyone should participate in the class."},
-                {en: "recycle", ko: "재활용하다", def: "to treat things that have already been used", ex: "Don't forget to recycle plastic bottles."},
-                {en: "communicate", ko: "의사소통하다", def: "to share information with others", ex: "People use language to communicate."},
-                {en: "depend", ko: "의존하다", def: "to need the help of someone", ex: "Babies depend on their parents."},
-                {en: "independent", ko: "독립적인", def: "not relying on other people", ex: "She is a very independent woman."},
-                {en: "familiar", ko: "친숙한", def: "well known from long or close association", ex: "This song sounds very familiar to me."},
-                {en: "realize", ko: "깨닫다", def: "to understand a situation clearly", ex: "I realized that I made a mistake."},
-                {en: "confident", ko: "자신감 있는", def: "feeling sure about your own abilities", ex: "He is confident about passing the exam."}
+            lesson3: [
+                {en: "artwork", ko: "미술품", def: "a painting, drawing, or other piece of art", ex: "She created an artwork for the school festival."},
+                {en: "century", ko: "세기, 100년", def: "a period of 100 years", ex: "The 21st century began in 2001."},
+                {en: "choice", ko: "선택", def: "the act of picking or deciding between two or more possibilities", ex: "Think carefully before making a choice."},
+                {en: "confuse ~ with ...", ko: "~을 …와 혼동하다", def: "to mistakenly think that one thing is another thing because they seem similar", ex: "Don’t confuse quantity with quality."},
+                {en: "dark", ko: "어두운, 짙은", def: "having little or no light; deep in color", ex: "It is too dark outside at night."},
+                {en: "differ", ko: "다르다", def: "to be not the same as something or someone else", ex: "Your opinion may differ from mine."},
+                {en: "difference", ko: "차이, 다름", def: "the way in which two or more things are not the same", ex: "What’s the difference between a frog and a toad?"},
+                {en: "exhibit", ko: "전시회", def: "a public display of art, objects, or information for people to view", ex: "You can see the history of dinosaurs at the exhibit."},
+                {en: "focus", ko: "초점, 중점 / 집중하다", def: "[n.] the center of attention or activity; the main point / [v.] to give all your attention to something", ex: "You should focus on your studies."},
+                {en: "helpful", ko: "도움이 되는", def: "giving help or being useful to someone", ex: "It is helpful to study a little every day."},
+                {en: "instead", ko: "대신에", def: "in place of someone or something; as another choice", ex: "I didn’t go to the park; I stayed home instead."},
+                {en: "landscape", ko: "풍경, 풍경화", def: "a view of an area of land, or a picture showing a view of the countryside", ex: "The artist painted a beautiful landscape of the lake."},
+                {en: "light", ko: "(색깔이) 연한, 옅은", def: "pale or not dark in color", ex: "She wore a light blue dress to the party."},
+                {en: "master", ko: "대가, 달인", def: "a person who is very skilled at something", ex: "Leonardo da Vinci was truly a master of art."},
+                {en: "mix up", ko: "혼동하다, 헷갈리다", def: "to confuse one thing or person with another", ex: "She mixed up salt with sugar."},
+                {en: "nature", ko: "자연", def: "the physical world including all plants, animals, landscapes, and things not made by people", ex: "We went on a hike to enjoy the beauty of nature."},
+                {en: "praise", ko: "칭찬하다", def: "to say that someone or something is good or has done well", ex: "The teacher praised the student for his hard work."},
+                {en: "probably", ko: "아마", def: "used to say that something is likely to happen or be true", ex: "I'll take an umbrella because it'll probably rain."},
+                {en: "realize", ko: "깨닫다, 알아차리다", def: "to become aware of something or understand something that you did not know before", ex: "I didn’t realize that yesterday was my sister’s birthday."},
+                {en: "series", ko: "연속물", def: "a number of things or events that come one after another in order", ex: "I watched a series of superhero movies."},
+                {en: "similar", ko: "비슷한, 닮은", def: "almost the same but not exactly the same", ex: "We have similar tastes in music."},
+                {en: "sound", ko: "~하게 들리다", def: "to seem or appear when you hear it", ex: "That song sounds amazing!"},
+                {en: "strange", ko: "이상한", def: "unusual or surprising in a way that is difficult to understand", ex: "I found something strange on the street."},
+                {en: "subject", ko: "대상, 주제", def: "a person or thing that is being discussed, studied, or dealt with", ex: "Focus the camera on the subject."},
+                {en: "tell ~ apart", ko: "~을 구별하다", def: "to see or notice the difference between two or more people or things", ex: "The brothers look so similar that I can’t tell them apart."},
+                {en: "unique", ko: "독특한", def: "being the only one of its kind; different from everything else", ex: "She has a unique style of painting."}
             ],
-            lesson2: [
-                {en: "traditional", ko: "전통적인", def: "following older methods and ideas", ex: "Hanbok is a traditional Korean dress."},
-                {en: "appreciate", ko: "감사하다", def: "to be thankful for something", ex: "I appreciate your help."},
-                {en: "suggest", ko: "제안하다", def: "to put forward an idea", ex: "I suggest that we take a break."},
-                {en: "improve", ko: "향상시키다", def: "to make something better", ex: "Reading books can improve your vocabulary."},
-                {en: "nervous", ko: "긴장한", def: "worried and anxious", ex: "I always feel nervous before tests."},
-                {en: "active", ko: "활동적인", def: "doing a lot of things", ex: "He is a very active boy."},
-                {en: "creative", ko: "창의적인", def: "having a lot of new ideas", ex: "She is a highly creative designer."},
-                {en: "decision", ko: "결정", def: "a choice that you make", ex: "It was a hard decision to make."},
-                {en: "gather", ko: "모으다, 모이다", def: "to come together", ex: "The students gathered in the hall."},
-                {en: "habit", ko: "습관", def: "something that you do regularly", ex: "Brushing teeth is a good habit."},
-                {en: "material", ko: "재료, 물질", def: "a physical substance", ex: "Wood is a natural material."},
-                {en: "notice", ko: "알아차리다", def: "to see or pay attention to something", ex: "Did you notice her new haircut?"},
-                {en: "predict", ko: "예측하다", def: "to say what will happen in the future", ex: "It is hard to predict the weather."},
-                {en: "recently", ko: "최근에", def: "not long ago", ex: "I recently bought a new bike."},
-                {en: "completely", ko: "완전히", def: "in every way or as much as possible", ex: "The building was completely destroyed."}
+            lesson4: [
+                {en: "brain", ko: "뇌", def: "the part of your head that helps you think and remember", ex: "My brain feels tired after studying."},
+                {en: "click", ko: "클릭하다", def: "to press a button on a mouse or screen", ex: "Click the button to start the game."},
+                {en: "concentrate", ko: "집중하다", def: "to give all your attention to something", ex: "Please concentrate on your homework."},
+                {en: "connect", ko: "연결하다", def: "to join things together", ex: "This road connects the two towns."},
+                {en: "exhibition", ko: "전시회, 전시", def: "a place where people show art or special things", ex: "We went to an art exhibition at school."},
+                {en: "experience", ko: "경험하다 / 경험", def: "to see, feel, or do something", ex: "I experienced my first trip alone."},
+                {en: "hurt", ko: "다치게 하다, 다치다", def: "to feel pain in your body or mind", ex: "My leg hurt after running."},
+                {en: "imagine", ko: "상상하다", def: "to make a picture in your mind", ex: "Imagine living without the internet."},
+                {en: "leave", ko: "두고가다, 떠나다", def: "to go away from a place", ex: "I leave home at seven every morning."},
+                {en: "mind", ko: "정신", def: "the part of you that thinks and feels", ex: "He has a strong mind and never gives up."},
+                {en: "nowadays", ko: "요즘에는", def: "these days", ex: "Nowadays, many students use tablets."},
+                {en: "screen", ko: "화면", def: "the part of a phone, TV, or computer that you look at", ex: "Don’t sit too close to the screen."},
+                {en: "suddenly", ko: "갑자기", def: "very quickly, not planned", ex: "Suddenly, the lights went out."},
+                {en: "sunshine", ko: "햇빛, 햇살", def: "bright light from the sun", ex: "The sunshine feels warm today."},
+                {en: "thought", ko: "생각, 사고", def: "an idea in your mind", ex: "I'd like to hear your thoughts about the issue."},
+                {en: "topic", ko: "주제", def: "a subject that you talk, write or learn about", ex: "The topic of the speech was saving the Earth."},
+                {en: "cut down on", ko: "~을 줄이다", def: "to use or do less of something", ex: "I am trying to cut down on sugar."},
+                {en: "pay attention", ko: "주의를 기울이다", def: "to listen or look carefully", ex: "Please pay attention to the teacher."},
+                {en: "pop up", ko: "불쑥 나타나다, 튀어나오다", def: "to appear suddenly", ex: "A message popped up on my smartphone."},
+                {en: "put away", ko: "~을 치우다", def: "to clean up and put something in its place", ex: "Please put away your toys before dinner."},
+                {en: "presentation", ko: "발표", def: "An event where you show, describe, or explain something to a group of people", ex: "He gave a presentation about his favorite sport."},
+                {en: "technology", ko: "기술", def: "The use of scientific knowledge for practical purposes.", ex: "Technology makes our lives easier."},
+                {en: "on time", ko: "제시간에", def: "At the correct or planned time; not late", ex: "The bus leaves at 8:30, so please arrive on time."},
+                {en: "check out", ko: "~을 확인하다", def: "To examine, look at, or get more information about something of interest.", ex: "Let’s check out the news."}
             ]
         };
 
-        let currentLesson = 1;
+        let currentLesson = 3;
         let currentMode = 'learn-all';
 
         // 상태 변수들
@@ -535,6 +549,9 @@
         let quizWords = [];
         let currentQuizIndex = 0;
         let score = 0;
+        let totalQuizQuestions = 0;
+        let targetPairs = 0;
+        
         let firstCard = null;
         let secondCard = null;
         let lockBoard = false;
@@ -550,7 +567,7 @@
         let studentId = '';
         let studentName = '';
         
-        // 선생님의 구글 앱스 스크립트 웹앱 URL
+        // 구글 앱스 스크립트 웹앱 URL (입력됨)
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFJKNmDeMYs74aYOjFXZ4KiyKOdKRCwUMCOA2dCrIuC4t6y-VEtCq0xSzVzMCmZxqy8g/exec'; 
 
         // --- 커스텀 모달 구현 ---
@@ -667,14 +684,14 @@
         }
 
         function getWordList() {
-            return currentLesson === 1 ? words.lesson1 : words.lesson2;
+            return currentLesson === 3 ? words.lesson3 : words.lesson4;
         }
 
         // --- 공통 제어 ---
         function setLesson(lesson) {
             currentLesson = lesson;
-            document.getElementById('btn-lesson1').classList.toggle('active', lesson === 1);
-            document.getElementById('btn-lesson2').classList.toggle('active', lesson === 2);
+            document.getElementById('btn-lesson3').classList.toggle('active', lesson === 3);
+            document.getElementById('btn-lesson4').classList.toggle('active', lesson === 4);
             singleCardIndex = 0; // 과 변경시 첫 단어로 초기화
             renderContent();
         }
@@ -745,13 +762,13 @@
                     <button class="nav-btn" onclick="changeSingleCard(-1)">◀</button>
                     <div class="flashcard single-card" onclick="this.classList.toggle('flipped')">
                         <div class="flashcard-inner">
-                            <div class="flashcard-front" style="font-size: 3rem;">${word.en}</div>
+                            <div class="flashcard-front" style="font-size: 2.2rem;">${word.en}</div>
                             <div class="flashcard-back" style="padding: 20px;">
-                                <h3 style="margin: 0 0 15px 0; font-size: 2rem; color: #E57373;">${word.ko}</h3>
-                                <div style="font-size: 1.1rem; color: #666; margin-bottom: 15px; line-height: 1.3;">
+                                <h3 style="margin: 0 0 15px 0; font-size: 1.8rem; color: #E57373;">${word.ko}</h3>
+                                <div style="font-size: 1rem; color: #666; margin-bottom: 15px; line-height: 1.3;">
                                     <strong>[영영풀이]</strong><br>${word.def}
                                 </div>
-                                <div style="font-size: 1.1rem; color: #444; line-height: 1.3; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px;">
+                                <div style="font-size: 1rem; color: #444; line-height: 1.3; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px;">
                                     <strong>[예문]</strong><br><em>"${word.ex}"</em>
                                 </div>
                             </div>
@@ -774,7 +791,8 @@
         // --- 3. 퀴즈 풀기 ---
         function startQuiz(area) {
             const list = [...getWordList()];
-            quizWords = list.sort(() => 0.5 - Math.random()).slice(0, 10);
+            totalQuizQuestions = Math.min(10, list.length); 
+            quizWords = list.sort(() => 0.5 - Math.random()).slice(0, totalQuizQuestions);
             currentQuizIndex = 0;
             score = 0;
             renderQuizQuestion(area);
@@ -784,8 +802,8 @@
             area.innerHTML = '';
             if (currentQuizIndex >= quizWords.length) {
                 area.innerHTML = `<h2>🎉 퀴즈 완료! 🎉</h2>
-                                  <div style="font-size:1.5rem; margin:20px;">10문제 중 ${score}문제를 맞췄어요!</div>
-                                  <button id="btn-submit-result" onclick="sendResultToSheet('객관식 퀴즈', ${score}, 10)" style="background:var(--primary); color:white; margin-bottom:15px; width: auto; font-size: 1.2rem;">선생님께 결과 전송하기 🚀</button><br>
+                                  <div style="font-size:1.5rem; margin:20px;">${totalQuizQuestions}문제 중 ${score}문제를 맞췄어요!</div>
+                                  <button id="btn-submit-result" onclick="sendResultToSheet('객관식 퀴즈', ${score}, ${totalQuizQuestions})" style="background:var(--primary); color:white; margin-bottom:15px; width: auto; font-size: 1.2rem;">선생님께 결과 전송하기 🚀</button><br>
                                   <button onclick="startQuiz(document.getElementById('content-area'))">다시 하기</button>`;
                 return;
             }
@@ -794,7 +812,8 @@
             const list = getWordList();
             
             let options = [currentWord.ko];
-            while (options.length < 4) {
+            const maxOptions = Math.min(4, list.length);
+            while (options.length < maxOptions) {
                 const randomWord = list[Math.floor(Math.random() * list.length)].ko;
                 if (!options.includes(randomWord)) options.push(randomWord);
             }
@@ -802,13 +821,14 @@
 
             const regex = new RegExp(currentWord.en, 'gi');
             let hintSentence = currentWord.ex.replace(regex, '________');
+            // 원형이 완벽히 매치되지 않을 때를 위한 추가 처리 (구동사 등 방어코드)
             if(hintSentence === currentWord.ex) { 
-                hintSentence = currentWord.ex.replace(currentWord.en.substring(0, currentWord.en.length-1), '________'); 
+                hintSentence = currentWord.ex.replace(new RegExp(currentWord.en.substring(0, currentWord.en.length-1), 'gi'), '________'); 
             }
 
             area.innerHTML = `
                 <div class="quiz-container">
-                    <p style="margin-bottom: 5px;">문제 ${currentQuizIndex + 1} / 10</p>
+                    <p style="margin-bottom: 5px;">문제 ${currentQuizIndex + 1} / ${totalQuizQuestions}</p>
                     <div class="quiz-question">${currentWord.en}</div>
                     <div class="quiz-hint">
                         <strong>[Hint]</strong> "${hintSentence}"
@@ -1023,7 +1043,8 @@
         function startMatchGame(area) {
             matchedPairs = 0;
             const list = getWordList();
-            let gameWords = [...list].sort(() => 0.5 - Math.random()).slice(0, 8); 
+            targetPairs = Math.min(8, list.length); 
+            let gameWords = [...list].sort(() => 0.5 - Math.random()).slice(0, targetPairs); 
             
             let cardsArray = [];
             gameWords.forEach((word, index) => {
@@ -1073,7 +1094,7 @@
             if (isMatch) {
                 disableMatchCards();
                 matchedPairs++;
-                if (matchedPairs === 8) {
+                if (matchedPairs === targetPairs) {
                     setTimeout(() => {
                         openAlertModal("축하합니다! 모든 카드를 맞췄어요! 🎊\n기억력이 대단하네요!", function() {
                             openConfirmModal("이 결과를 선생님께 전송할까요?", function() {
